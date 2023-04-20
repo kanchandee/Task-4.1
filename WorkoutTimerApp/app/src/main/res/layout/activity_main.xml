@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="100sp"
+        android:src="@drawable/cultfitlogo2" />
+
+    <LinearLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/workoutDurationTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50sp"
+            android:paddingLeft="10sp"
+            android:paddingRight="10sp"
+            android:text="@string/workout_duration_text"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/workoutDuration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp"
+            android:background="#323739"
+            android:hint="@string/workout_duration"
+            android:paddingLeft="10sp"
+            android:paddingRight="10sp"
+            android:textColor="#fff"
+            android:textColorHint="#666A6C"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/restPeriodTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50sp"
+            android:paddingLeft="16sp"
+            android:paddingRight="16sp"
+            android:text="@string/rest_period_text"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/restPeriod"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp"
+            android:background="#323739"
+            android:hint="@string/rest_period"
+            android:paddingLeft="16sp"
+            android:paddingRight="16sp"
+            android:textColor="#fff"
+            android:textColorHint="#666A6C"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/addItemToList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5sp"
+                android:background="#2196F3"
+                android:gravity="center"
+                android:paddingLeft="16sp"
+                android:paddingRight="16sp"
+                android:text="@string/add_workout"
+                android:textColor="#fff"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/startWorkoutButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5sp"
+                android:background="#2196F3"
+                android:gravity="center"
+                android:paddingLeft="16sp"
+                android:paddingRight="16sp"
+                android:text="@string/start_workout_button_text"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:layout_marginStart="30dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/workoutLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <com.bosphere.fadingedgelayout.FadingEdgeLayout
+                android:id="@+id/fading_edge_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignTop="@+id/progress_bar"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="-53dp"
+                app:fel_edge="top|left|bottom|right"
+                app:fel_size_bottom="50dp"
+                app:fel_size_left="200dp"
+                app:fel_size_right="200dp"
+                app:fel_size_top="50dp">
+
+                <pl.droidsonroids.gif.GifImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="30dp"
+                    android:paddingBottom="10dp"
+                    android:src="@drawable/peoplesworkout" />
+
+            </com.bosphere.fadingedgelayout.FadingEdgeLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                app:layout_collapseMode="pin" />
+
+            <!--progress bar implementation-->
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="280dp"
+                android:layout_height="280dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/circular_shape"
+                android:indeterminate="false"
+                android:progressDrawable="@drawable/circular_progress_bar"
+                android:textAlignment="center" />
+
+            <!--Text implementation in center of the progress bar-->
+            <TextView
+                android:id="@+id/progress_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:text="00:00"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/workoutOrRestTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="text"
+            android:textColor="@color/white"
+            android:textSize="28dp"
+            android:textStyle="italic"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/palyPauseWorkoutButton"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:background="@drawable/pause_button" />
+
+            <Button
+                android:id="@+id/stopWorkoutButton"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginLeft="50dp"
+                android:background="@drawable/stop_button" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

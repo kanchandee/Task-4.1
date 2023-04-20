@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">cure.fit</string>
+    <string name="workout_duration_text">Enter Workout Duration in minutes</string>
+    <string name="workout_duration">5</string>
+    <string name="rest_period_text">Enter Rest Period in seconds</string>
+    <string name="rest_period">10</string>
+    <string name="add_workout">Add Workout to List</string>
+    <string name="start_workout_button_text">Start Workout</string>
+</resources>

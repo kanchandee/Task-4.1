@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="top"
+    android:background="#000"
+    android:gravity="center_vertical"
+    tools:context=".SplashActivity">
+
+    <ImageView
+        android:id="@+id/mainlogo"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:src="@drawable/cultfitlogo" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/mainlogo"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60sp"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textColor="#fff"
+            android:textSize="50sp"
+            android:textStyle="bold" />
+
+        <com.bosphere.fadingedgelayout.FadingEdgeLayout
+            android:id="@+id/fading_edge_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:fel_edge="top|left|bottom|right"
+            app:fel_size_bottom="80dp"
+            app:fel_size_left="80dp"
+            app:fel_size_right="80dp"
+            app:fel_size_top="80dp">
+
+            <pl.droidsonroids.gif.GifImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="30dp"
+                android:paddingBottom="10dp"
+                android:src="@drawable/exercise1" />
+
+        </com.bosphere.fadingedgelayout.FadingEdgeLayout>
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            app:layout_collapseMode="pin"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
